@@ -56,3 +56,9 @@
     text-align: center;
   }
 }
+
+@media (max-width: 351px) {
+  .shipping-policy {
+    padding: 45px 40px;
+  }
+}

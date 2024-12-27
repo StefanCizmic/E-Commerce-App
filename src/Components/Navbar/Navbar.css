@@ -165,9 +165,15 @@
 }
 
 @media (min-width: 401px) and (max-width: 800px) {
+  .upper-nav {
+    padding: 0px 25px;
+  }
   .search-content span,
   .user-cart-cont {
     font-size: 12px;
+  }
+  .user-cart-cont {
+    gap: 10px;
   }
   .store-name {
     font-size: 16px;
@@ -175,10 +181,22 @@
 }
 
 @media (max-width: 400px) {
+  .upper-nav {
+    padding: 0px 15px;
+  }
+  .user-cart-cont {
+    gap: 8px;
+  }
   .user-cart-cont {
     font-size: 11px;
   }
   .store-name {
     font-size: 12.5px;
+  }
+}
+
+@media (max-width: 281px) {
+  .store-icon {
+    display: none;
   }
 }

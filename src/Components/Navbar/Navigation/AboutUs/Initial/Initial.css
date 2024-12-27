@@ -27,3 +27,39 @@
 .about-us-initiial .text p {
   font-size: 18px;
 }
+
+@media (min-width: 401px) and (max-width: 801px) {
+  .find-out-more {
+    font-size: 14px;
+  }
+  .about-us-initial .text h1 {
+    font-size: 35px;
+  }
+  .about-us-initial .text p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 301px) and (max-width: 400px) {
+  .find-out-more {
+    font-size: 12px;
+  }
+  .about-us-initial .text h1 {
+    font-size: 25px;
+  }
+  .about-us-initial .text p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 300px) {
+  .find-out-more {
+    font-size: 10px;
+  }
+  .about-us-initial .text h1 {
+    font-size: 17.5px;
+  }
+  .about-us-initial .text p {
+    font-size: 10px;
+  }
+}
