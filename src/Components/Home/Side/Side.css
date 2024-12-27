@@ -1,0 +1,15 @@
+.side-content {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.angle-icon:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .side-content {
+    display: none;
+  }
+}

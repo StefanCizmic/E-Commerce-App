@@ -1,0 +1,58 @@
+.shipping-policy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.shipping-policy > div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 15.5px;
+  border-bottom: 2.5px solid var(--color-black);
+  padding-bottom: 25px;
+}
+
+.shipping-policy div:last-child {
+  border-bottom: none;
+}
+
+.contact-via-mail {
+  color: #007bff;
+}
+
+.contact-via-mail:hover {
+  cursor: pointer;
+  color: #dc143c;
+}
+
+@media (min-width: 1200px) {
+  .shipping-policy {
+    padding: 45px 300px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1199px) {
+  .shipping-policy {
+    padding: 45px 100px;
+    font-size: 12.5px;
+  }
+  .shipping-policy > div {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+  .shipping-policy {
+    font-size: 8px;
+    padding: 45px 80px;
+  }
+  .shipping-policy > div {
+    font-size: 11px;
+  }
+  .shipping-policy h3 {
+    text-align: center;
+  }
+}

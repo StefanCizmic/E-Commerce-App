@@ -1,0 +1,22 @@
+.about-us {
+  color: var(--color-white);
+  height: 600px;
+  background-image: url("../../../../Images/store\ 2.jfif");
+  background-position: bottom;
+  background-attachment: fixed;
+}
+
+.about-us > div {
+  padding: 30px 40px;
+}
+
+.about-us {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.about-us.show {
+  opacity: 1;
+  transform: translateY(0);
+}

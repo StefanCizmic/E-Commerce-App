@@ -1,0 +1,8 @@
+.infoFooter a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.infoFooter a:hover {
+  color: var(--color-orange);
+}

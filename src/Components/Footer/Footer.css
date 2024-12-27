@@ -1,0 +1,39 @@
+.footer {
+  height: 80px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.footerContent,
+.footerContent ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerContent li {
+  padding: 10px;
+  list-style-type: none;
+}
+
+.footerContent li:hover {
+  cursor: pointer;
+  color: var(--color-orange);
+}
+
+.footerContent input, button {
+  padding: 7px;
+  outline: none;
+}
+
+.footerContent button {
+  color: var(--color-white);
+  font-weight: 500;
+  background-color: #e30202;
+}
+
+.footerContent button:hover {
+  cursor: pointer;
+}

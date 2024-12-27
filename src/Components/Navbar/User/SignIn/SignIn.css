@@ -1,0 +1,27 @@
+
+
+.password-field p {
+  font-size: 12.5px;
+  text-align: end;
+  margin-top: 10px;
+}
+
+.password-forgotten:hover {
+  cursor: pointer;
+  color: #007bff;
+}
+
+.sign-up-span {
+  color: #007bff;
+}
+
+.sign-up-span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .sign-in {
+    font-size: 12.5px;
+  }
+}
