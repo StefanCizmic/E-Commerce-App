@@ -9,7 +9,7 @@ export const Home = ({ records }) => {
   return (
     <div className="home">
       <TopSellers records={records} />
-      <Recommended />
+      <Recommended records={records} />
       {/*
       <Info /> */}
     </div>

@@ -11,9 +11,9 @@
 }
 
 @media (max-width: 1000px) {
-  .find-out-more-content {
+  /* .find-out-more-content {
     align-items: center;
-  }
+  } */
 }
 
 @media (min-width: 801px) and (max-width: 1025px) {

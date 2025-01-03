@@ -79,7 +79,7 @@ export const Navbar = () => {
           </div>
         </div>
         <div className="store-name-cont">
-          <Link to="/">
+          <Link to="/home">
             <p className="store-name">
               Harmony Records{" "}
               <FontAwesomeIcon className="store-icon" icon={faRecordVinyl} />
@@ -105,7 +105,7 @@ export const Navbar = () => {
       <div className="bottom-nav">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li>
             <Link to="/shop">Shop</Link>

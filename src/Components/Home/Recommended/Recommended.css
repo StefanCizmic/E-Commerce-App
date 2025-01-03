@@ -1,4 +1,33 @@
+.recommended {
+  height: auto;
+}
 
-.suggested {
-    height: 500px;
+.proba {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 80px;
+  row-gap: 80px;
+  padding-top: 70px;
+}
+
+.recommended-record {
+  display: grid;
+  grid-template-rows: 0.8fr 0.2fr;
+  width: 25%;
+}
+
+.recommended-record:hover {
+    cursor: pointer;
+}
+
+.recommended-record-img > img {
+  width: 100%;
+  height: 100%;
+}
+
+.recommended-record-data {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 17.5px;
 }

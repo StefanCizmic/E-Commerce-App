@@ -22,8 +22,8 @@ const App = () => {
   const navigateTo = useNavigate();
   const [records, setRecords] = useState([]);
   useEffect(() => {
-    if (currentRoute.pathname !== "/") {
-      navigateTo("/");
+    if (currentRoute.pathname !== "/home") {
+      navigateTo("/home");
     }
   }, []);
   useEffect(() => {
@@ -35,12 +35,13 @@ const App = () => {
     };
     fetchRecords();
   }, []);
+  console.log(records);
   return (
     <div>
       <Navbar />
       <div className="content">
         <Routes>
-          <Route path="/" element={<Home records={records} />}></Route>
+          <Route path="/home" element={<Home records={records} />}></Route>
           <Route path="/shop" element={<Shop records={records} />}></Route>
           <Route path="/newsteller" element={<Newsteller />}></Route>
           <Route path="/club" element={<Club />}></Route>
