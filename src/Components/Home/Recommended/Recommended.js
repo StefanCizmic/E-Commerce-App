@@ -7,7 +7,7 @@ export const Recommended = ({ records }) => {
   return (
     <div className="recommended">
       <Side popper="we recommend" />
-      <div className="proba">
+      <div className="recomm-records">
         {records ? (
           records
             .sort(() => Math.random() - 0.5)
@@ -17,6 +17,9 @@ export const Recommended = ({ records }) => {
                 <div className="recommended-record" key={item.id}>
                   <div className="recommended-record-img">
                     <img src={item.img} />
+                    <div className="recommended-overlay">
+                      <p>{item.price}&#8364;</p>
+                    </div>
                   </div>
                   <div className="recommended-record-data">
                     <p style={{ fontWeight: "bold" }}>{item.artist}</p>
