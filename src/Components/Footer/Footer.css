@@ -1,39 +1,60 @@
 .footer {
-  height: 80px;
-  background-color: var(--color-black);
+  height: auto;
+  background-color: #3a3c44;
   color: var(--color-white);
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  display: flex;
 }
 
-.footerContent,
-.footerContent ul {
+.footer > div {
+  width: 50%;
+  padding: 15px 10px;
+}
+
+.footer > div:first-child {
+  display: flex;
+}
+
+.footer > div:first-child > div {
+  width: 50%;
+}
+
+.footer > div:first-child > div:first-child > div {
+  margin: 20px;
+}
+
+.footer > div:first-child > div:nth-child(2) > div:first-child {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 85%;
 }
 
-.footerContent li {
-  padding: 10px;
+.footer > div:first-child > div:nth-child(2) > div:nth-child(2) {
+  text-align: center;
+}
+
+.footer > div:first-child > div:nth-child(2) ul {
+  display: flex;
+  gap: 30px;
   list-style-type: none;
 }
 
-.footerContent li:hover {
-  cursor: pointer;
-  color: var(--color-orange);
-}
-
-.footerContent input, button {
-  padding: 7px;
-  outline: none;
-}
-
-.footerContent button {
+.footer > div:first-child > div:nth-child(2) ul a {
   color: var(--color-white);
-  font-weight: 500;
-  background-color: #e30202;
 }
 
-.footerContent button:hover {
+.footer > div:first-child > div:nth-child(2) ul li a:hover {
   cursor: pointer;
+  color: var(--color-green);
+}
+
+.footer > div:nth-child(2) {
+  padding: 50px 105px;
+}
+
+.footer .footer-map {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
