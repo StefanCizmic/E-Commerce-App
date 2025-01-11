@@ -1,14 +1,13 @@
 .top-sellers {
   width: 100%;
-  height: 400px;
-  padding-bottom: 15px;
-  border-left: 1px solid black;
+  padding-bottom: 70px;
 }
 
 .carousel-cont {
   width: 100%;
   height: 100%;
-  padding-bottom: 20px;
+  padding-top: 70px;
+  padding-bottom: 40px;
 }
 
 .records-carousel {
@@ -42,16 +41,12 @@
 @media (max-width: 1024px) {
   .top-sellers {
     display: none; 
+    padding: 0;
+  }
+  .carousel-cont {
+    display: none;
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1150px) {
-  .record {
-    width: 170px; 
-  }
-  .record-data {
-    font-size: 14px;
-  }
-}
 
 

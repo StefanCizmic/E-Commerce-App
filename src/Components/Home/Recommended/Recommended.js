@@ -8,17 +8,27 @@ export const Recommended = ({ records }) => {
     <div className="recommended">
       <Side popper="we recommend" />
       <div className="recomm-records">
+        <h2>We recommend</h2>
         {records ? (
           records
             .sort(() => Math.random() - 0.5)
-            .slice(0, 15)
+            .slice(0, 20)
             .map((item) => {
               return (
                 <div className="recommended-record" key={item.id}>
                   <div className="recommended-record-img">
                     <img src={item.img} />
                     <div className="recommended-overlay">
-                      <p>{item.price}&#8364;</p>
+                      <div className="label-date-overlay">
+                        <p>
+                          Release: <br /> {item?.release?.date}
+                        </p>
+                        <hr/>
+                        <p>{item?.release?.label}</p>
+                      </div>
+                      <div className="price-overlay">
+                        <p>{item.price}&#8364;</p>
+                      </div>
                     </div>
                   </div>
                   <div className="recommended-record-data">

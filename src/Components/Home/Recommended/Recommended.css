@@ -1,5 +1,6 @@
 .recommended {
   height: auto;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .recomm-records {
@@ -12,10 +13,14 @@
   padding-bottom: 70px;
 }
 
+.recomm-records h2 {
+  display: none;
+}
+
 .recommended-record {
   display: grid;
   grid-template-rows: 0.8fr 0.2fr;
-  width: 25%;
+  width: 20%;
 }
 
 .recommended-record:hover {
@@ -44,26 +49,70 @@
   transition: 0.5s ease;
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 15px;
+  display: grid;
+  grid-template-rows: 0.2fr 0.8fr;
 }
 
 .recommended-overlay:hover {
   opacity: 1;
 }
 
-.recommended-overlay p {
-  color: #FF8C00;
-  font-size: 25px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
+.recommended-overlay > div {
+  padding: 12.5px;
+  letter-spacing: 1px;
+}
+
+.label-date-overlay {
+  color: var(--color-white);
+  font-size: 14.5px;
+}
+
+.price-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: orange;
+  font-size: 24px;
 }
 
 .recommended-record-data {
   padding-top: 10px;
   text-align: center;
   font-size: 17.5px;
+}
+
+@media (max-width: 1000px) {
+  .recommended-overlay {
+    display: none;
+  }
+}
+
+@media (max-width: 850px) {
+  .recomm-records {
+    flex-direction: column;
+    align-items: center;
+    column-gap: 30px;
+    row-gap: 30px;
+  }
+  .recomm-records h2 {
+    display: block;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 850px) {
+  .recommended-record {
+    width: 35%;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 549px) {
+  .recommended-record {
+    width: 45%;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 449px) {
+  .recommended-record {
+    width: 50%;
+  }
 }
