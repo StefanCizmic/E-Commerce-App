@@ -41,6 +41,7 @@
 
 .footer > div:first-child > div:nth-child(2) ul a {
   color: var(--color-white);
+  transition: color 0.13s ease-in
 }
 
 .footer > div:first-child > div:nth-child(2) ul li a:hover {
@@ -57,4 +58,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 1150px) {
+  .footer > div:nth-child(2) {
+    display: none;
+  }
+  .footer > div:first-child {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .footer > div:first-child {
+    display: block;
+  }
+  .footer > div:first-child > div {
+    width: 100%;
+    text-align: center;
+  }
+  .footer > div:first-child > div:nth-child(2) > div {
+    padding: 15px;
+  }
+}
+
+@media (min-width: 330px) and (max-width: 700px) {
+  .footer > div:first-child {
+    font-size: 14.5px;
+  }
+}
+
+@media (min-width: 1px) and (max-width: 329px) {
+  .footer > div:first-child {
+    font-size: 12px;
+  }
+  .footer > div:first-child > div:nth-child(2) ul {
+    gap: 20px;
+  }
 }

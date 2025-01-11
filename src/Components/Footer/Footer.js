@@ -88,13 +88,13 @@ export const Footer = () => {
       <div>
         <div className="footer-map">
           <MapContainer
-            center={[34.090956, -118.383781]}
+            center={[38.915348, -77.031661]}
             zoom={10}
             style={{ width: "95%", height: "230px", borderRadius: "10px" }}
           >
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <Marker
-              position={[34.090956, -118.383781]}
+              position={[38.915348, -77.031661]}
               icon={customIcon}
             ></Marker>
           </MapContainer>
