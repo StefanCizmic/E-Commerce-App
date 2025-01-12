@@ -20,6 +20,7 @@ export const Navbar = ({ records }) => {
   };
   const inputHandler = (e) => {
     const typedText = e.target.value.toLowerCase();
+    
 
     if (typedText.length > 0) {
       const filtered = records
@@ -35,7 +36,6 @@ export const Navbar = ({ records }) => {
       setFilteredRecords([]);
     }
   };
-  console.log(filteredRecords);
   const drawerContent = (
     <div>
       <FontAwesomeIcon

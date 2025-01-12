@@ -7,9 +7,14 @@ import "./TopSellers.css";
 export const TopSellers = ({ records }) => {
   const responsive = {
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 3000, min: 1250 },
+      items: 6,
+      slidesToSlide: 3,
+    },
+    smallerView: {
+      breakpoint: {max: 1249, min: 1024},
       items: 5,
-      slidesToSlide: 1,
+      slidesToSlide: 3,
     }
   };
   return (
@@ -22,7 +27,7 @@ export const TopSellers = ({ records }) => {
         autoPlaySpeed={5000}
         infinite={true}
         containerClass="carousel-cont"
-        removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
+        removeArrowOnDeviceType={["desktop", "smallerView"]}
       >
         {records ? (
           records.map((item) => {
