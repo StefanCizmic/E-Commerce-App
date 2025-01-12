@@ -12,11 +12,30 @@ import { Link } from "react-router-dom";
 import Drawer from "@mui/material/Drawer";
 import "./Navbar.css";
 
-export const Navbar = () => {
+export const Navbar = ({ records }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [filteredRecords, setFilteredRecords] = useState([]);
   const toggleDrawer = (open) => () => {
     setIsDrawerOpen(open);
   };
+  const inputHandler = (e) => {
+    const typedText = e.target.value.toLowerCase();
+
+    if (typedText.length > 0) {
+      const filtered = records
+        .filter((record) => {
+          return (
+            record.artist.toLowerCase().startsWith(typedText) ||
+            record.title.toLowerCase().startsWith(typedText)
+          );
+        })
+        .slice(0, 6);
+      setFilteredRecords(filtered);
+    } else {
+      setFilteredRecords([]);
+    }
+  };
+  console.log(filteredRecords);
   const drawerContent = (
     <div>
       <FontAwesomeIcon
@@ -70,13 +89,33 @@ export const Navbar = () => {
       </Drawer>
       <div className="upper-nav">
         <div className="search">
+          <div>
           <div className="search-content">
             <span className="search-form">
               <FontAwesomeIcon className="search-icon" icon={faSearch} />
-              <input type="text" placeholder="find records" />
+              <input
+                type="text"
+                placeholder="find records"
+                onChange={inputHandler}
+              />
             </span>
             <button>search</button>
           </div>
+          <div className="filtered-records">
+            {filteredRecords.map((record) => {
+              return (
+                <div key={record.id} className="filtered-record">
+                  <div>
+                    <img src={record.img}></img>
+                  </div>
+                  <div>
+                  {record.artist} - {record.title}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
         </div>
         <div className="store-name-cont">
           <Link to="/home">

@@ -17,6 +17,7 @@ const App = () => {
   const currentRoute = useLocation();
   const navigateTo = useNavigate();
   const [records, setRecords] = useState([]);
+  const [isFocused, setIsFocused] = useState(false);
   useEffect(() => {
     if (currentRoute.pathname !== "/home") {
       navigateTo("/home");
@@ -33,8 +34,8 @@ const App = () => {
   }, []);
   console.log(records);
   return (
-    <div>
-      <Navbar />
+    <div className="app">
+      <Navbar records={records} setIsFocused={setIsFocused}/>
       <div className="content">
         <Routes>
           <Route path="/home" element={<Home records={records} />}></Route>
@@ -42,11 +43,11 @@ const App = () => {
           <Route path="/newsteller" element={<Newsteller />}></Route>
           <Route path="/club" element={<Club />}></Route>
           <Route path="/about" element={<AboutUs />}></Route>
-          <Route path="/shipping" element={<ShippingPolicy/>}></Route>
+          <Route path="/shipping" element={<ShippingPolicy />}></Route>
           <Route path="/user" element={<User />}></Route>
           <Route path="cart" element={<Cart />}></Route>
         </Routes>
-        <Footer />
+        {currentRoute.pathname !== "/about" ? <Footer /> : null}
       </div>
     </div>
   );
