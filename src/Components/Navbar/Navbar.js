@@ -8,19 +8,19 @@ import {
   faRecordVinyl,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Drawer from "@mui/material/Drawer";
 import "./Navbar.css";
 
 export const Navbar = ({ records }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [filteredRecords, setFilteredRecords] = useState([]);
+  const navigate = useNavigate();
   const toggleDrawer = (open) => () => {
     setIsDrawerOpen(open);
   };
   const inputHandler = (e) => {
     const typedText = e.target.value.toLowerCase();
-    
 
     if (typedText.length > 0) {
       const filtered = records
@@ -36,6 +36,9 @@ export const Navbar = ({ records }) => {
       setFilteredRecords([]);
     }
   };
+  const handleRecord = (record) => {
+    navigate("/single", {state: {record}});
+  }
   const drawerContent = (
     <div>
       <FontAwesomeIcon
@@ -49,8 +52,23 @@ export const Navbar = ({ records }) => {
           type="text"
           placeholder="find records"
           style={{ backgroundColor: "#f5f5f5" }}
+          onChange={inputHandler}
         />
       </span>
+      <div className="filtered-records">
+        {filteredRecords.map((record) => {
+          return (
+            <div key={record.id} className="filtered-record">
+              <div>
+                <img src={record.img}></img>
+              </div>
+              <div>
+                {record.artist} - {record.title}
+              </div>
+            </div>
+          );
+        })}
+      </div>
       <ul className="drawer-content">
         {["Home", "Shop", "Newsteller", "Club", "About", "Shipping"].map(
           (item) => (
@@ -90,32 +108,32 @@ export const Navbar = ({ records }) => {
       <div className="upper-nav">
         <div className="search">
           <div>
-          <div className="search-content">
-            <span className="search-form">
-              <FontAwesomeIcon className="search-icon" icon={faSearch} />
-              <input
-                type="text"
-                placeholder="find records"
-                onChange={inputHandler}
-              />
-            </span>
-            <button>search</button>
-          </div>
-          <div className="filtered-records">
-            {filteredRecords.map((record) => {
-              return (
-                <div key={record.id} className="filtered-record">
-                  <div>
-                    <img src={record.img}></img>
+            <div className="search-content">
+              <span className="search-form">
+                <FontAwesomeIcon className="search-icon" icon={faSearch} />
+                <input
+                  type="text"
+                  placeholder="find records"
+                  onChange={inputHandler}
+                />
+              </span>
+              <button>search</button>
+            </div>
+            <div className="filtered-records">
+              {filteredRecords.map((record) => {
+                return (
+                  <div key={record.id} className="filtered-record" onClick={() => handleRecord(record)}>
+                    <div>
+                      <img src={record.img}></img>
+                    </div>
+                    <div>
+                      {record.artist} - {record.title}
+                    </div>
                   </div>
-                  <div>
-                  {record.artist} - {record.title}
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
         </div>
         <div className="store-name-cont">
           <Link to="/home">

@@ -8,6 +8,7 @@ import { Newsteller } from "./Components/Newsteller/Newsteller";
 import { Club } from "./Components/Club/Club";
 import { AboutUs } from "./Components/Navbar/Navigation/AboutUs/AboutUs";
 import { ShippingPolicy } from "./Components/Navbar/Navigation/ShippingPolicy/ShippingPolicy";
+import { SingleRecord } from "./Components/SingleRecord/SingleRecord";
 import { Footer } from "./Components/Footer/Footer";
 import { getRecords } from "./Util/getRecords";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
@@ -45,7 +46,8 @@ const App = () => {
           <Route path="/about" element={<AboutUs />}></Route>
           <Route path="/shipping" element={<ShippingPolicy />}></Route>
           <Route path="/user" element={<User />}></Route>
-          <Route path="cart" element={<Cart />}></Route>
+          <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/single" element={<SingleRecord />}></Route>          
         </Routes>
         {currentRoute.pathname !== "/about" ? <Footer /> : null}
       </div>

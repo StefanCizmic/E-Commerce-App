@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { CardSkeleton } from "../../CardSkeleton/CardSkeleton";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Side } from "../Side/Side";
 import "./Recommended.css";
 
 export const Recommended = ({ records }) => {
+  const navigate = useNavigate();
+  const handleRecord = (record) => {
+    navigate("/single", { state: { record } });
+  };
   return (
     <div className="recommended">
       <Side popper="we recommend" />
@@ -15,7 +19,11 @@ export const Recommended = ({ records }) => {
             .slice(0, 20)
             .map((item) => {
               return (
-                <div className="recommended-record" key={item.id}>
+                <div
+                  className="recommended-record"
+                  key={item.id}
+                  onClick={() => handleRecord(item)}
+                >
                   <div className="recommended-record-img">
                     <img src={item.img} />
                     <div className="recommended-overlay">
@@ -23,17 +31,17 @@ export const Recommended = ({ records }) => {
                         <p>
                           Release: <br /> {item?.release?.date}
                         </p>
-                        <hr/>
+                        <hr />
                         <p>{item?.release?.label}</p>
                       </div>
                       <div className="price-overlay">
-                        <p>{item.price}&#8364;</p>
+                        <p>{item?.price}&#8364;</p>
                       </div>
                     </div>
                   </div>
                   <div className="recommended-record-data">
-                    <p style={{ fontWeight: "bold" }}>{item.artist}</p>
-                    <p>{item.title}</p>
+                    <p style={{ fontWeight: "bold" }}>{item?.artist}</p>
+                    <p>{item?.title}</p>
                   </div>
                 </div>
               );

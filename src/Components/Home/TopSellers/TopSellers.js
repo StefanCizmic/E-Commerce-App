@@ -1,10 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Side } from "../Side/Side";
 import "./TopSellers.css";
 
 export const TopSellers = ({ records }) => {
+  const navigate = useNavigate();
+  const handleRecord = (record) => {
+    navigate("/single", {state: {record}});
+  }
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1250 },
@@ -30,17 +35,17 @@ export const TopSellers = ({ records }) => {
         removeArrowOnDeviceType={["desktop", "smallerView"]}
       >
         {records ? (
-          records.map((item) => {
-            if (item.topSeller) {
+          records?.map((item) => {
+            if (item?.topSeller) {
               return (
-                <div className="records-carousel" key={item.id}>
+                <div className="records-carousel" key={item?.id} onClick={() => handleRecord(item)}>
                   <div className="record">
                     <div className="record-img">
-                      <img src={item.img} />
+                      <img src={item?.img} />
                     </div>
                     <div className="record-data">
-                      <p style={{ fontWeight: "bold" }}>{item.artist}</p>
-                      <p>{item.title}</p>
+                      <p style={{ fontWeight: "bold" }}>{item?.artist}</p>
+                      <p>{item?.title}</p>
                     </div>
                   </div>
                 </div>

@@ -212,6 +212,9 @@
   .store-name {
     text-align: start;
   }
+  .filtered-records {
+    width: 85%;
+  }
 }
 
 @media (min-width: 401px) and (max-width: 800px) {

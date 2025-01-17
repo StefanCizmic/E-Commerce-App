@@ -10,8 +10,7 @@ export const Home = ({ records }) => {
     <div className="home">
       <TopSellers records={records} />
       <Recommended records={records} />
-      {/*
-      <Info /> */}
+      <Info />
     </div>
   );
 };
