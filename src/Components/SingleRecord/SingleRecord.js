@@ -59,18 +59,6 @@ export const SingleRecord = () => {
           </div>
         </div>
         <div className="single-record-bottom">
-          {/* <ul>
-            <li>
-              <h4>Tracklist:</h4>
-            </li>
-            {record.tracks.map((track, index) => {
-              return (
-                <li>
-                  {index + 1}. {track}
-                </li>
-              );
-            })}
-          </ul> */}
         </div>
       </div>
     </div>

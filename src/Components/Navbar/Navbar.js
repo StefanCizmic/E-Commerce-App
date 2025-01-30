@@ -38,6 +38,7 @@ export const Navbar = ({ records }) => {
   };
   const handleRecord = (record) => {
     navigate("/single", {state: {record}});
+    setFilteredRecords([]); 
   }
   const drawerContent = (
     <div>
