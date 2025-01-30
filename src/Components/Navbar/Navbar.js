@@ -137,7 +137,7 @@ export const Navbar = ({ records }) => {
           </div>
         </div>
         <div className="store-name-cont">
-          <Link to="/home">
+          <Link to="/">
             <p className="store-name">
               Harmony Records{" "}
               <FontAwesomeIcon className="store-icon" icon={faRecordVinyl} />
@@ -163,7 +163,7 @@ export const Navbar = ({ records }) => {
       <div className="bottom-nav">
         <ul>
           <li>
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/shop">Shop</Link>
