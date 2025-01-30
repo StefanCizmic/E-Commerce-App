@@ -51,6 +51,7 @@
 
 .footer > div:nth-child(2) {
   padding: 50px 105px;
+  display: none;
 }
 
 .footer .footer-map {
@@ -58,6 +59,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.footer > div:first-child {
+  width: 100%;
 }
 
 @media (max-width: 1150px) {

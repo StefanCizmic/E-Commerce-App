@@ -19,11 +19,11 @@ const App = () => {
   const navigateTo = useNavigate();
   const [records, setRecords] = useState([]);
   const [isFocused, setIsFocused] = useState(false);
-  useEffect(() => {
-    if (currentRoute.pathname !== "/home") {
-      navigateTo("/home");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (currentRoute.pathname !== "/home") {
+  //     navigateTo("/home");
+  //   }
+  // }, []);
   useEffect(() => {
     const fetchRecords = async () => {
       const recordsData = await getRecords();
@@ -39,7 +39,7 @@ const App = () => {
       <Navbar records={records} setIsFocused={setIsFocused}/>
       <div className="content">
         <Routes>
-          <Route path="/home" element={<Home records={records} />}></Route>
+          <Route path="/" element={<Home records={records} />}></Route>
           <Route path="/shop" element={<Shop records={records} />}></Route>
           <Route path="/newsteller" element={<Newsteller />}></Route>
           <Route path="/club" element={<Club />}></Route>
