@@ -4,7 +4,7 @@ import './Cart.css';
 export const Cart = () => {
     return (
         <div>
-            <h1>Cart</h1>
+            <h1>In development</h1>
         </div>
     )
 };

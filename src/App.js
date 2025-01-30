@@ -49,8 +49,8 @@ const App = () => {
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/single" element={<SingleRecord />}></Route>          
         </Routes>
-        {currentRoute.pathname !== "/about" ? <Footer /> : null}
-      </div>
+        {currentRoute.pathname !== "/about" && currentRoute.pathname !== "/user" ? <Footer /> : null}
+        </div>
     </div>
   );
 };

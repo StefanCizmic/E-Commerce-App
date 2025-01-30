@@ -4,7 +4,7 @@ import "./Newsteller.css";
 export const Newsteller = () => {
   return (
     <>
-      <h1>Newsteller</h1>
+      <h1>In development</h1>
     </>
   );
 };

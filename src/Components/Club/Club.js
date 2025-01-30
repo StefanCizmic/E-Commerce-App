@@ -4,7 +4,7 @@ import "./Club.css";
 export const Club = () => {
   return (
     <>
-      <h1>Club</h1>
+      <h1>In development</h1>
     </>
   );
 };
