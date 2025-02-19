@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { getRecords } from "../../Util/getRecords";
-import { TopSellers } from "./TopSellers/TopSellers";
-import { Recommended } from "./Recommended/Recommended";
-import { Info } from "./Info/Info";
+import React from "react";
+import { TopSellers } from "../TopSellers/TopSellers";
+import { Recommended } from "../Recommended/Recommended";
+import { StoreInfo } from "../StoreInfo/StoreInfo";
 import "./Home.css";
 
 export const Home = ({ records }) => {
@@ -10,7 +9,7 @@ export const Home = ({ records }) => {
     <div className="home">
       <TopSellers records={records} />
       <Recommended records={records} />
-      <Info />
+      <StoreInfo />
     </div>
   );
 };

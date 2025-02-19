@@ -1,3 +1,26 @@
+.about-us {
+  color: var(--color-white);
+  height: 630px;
+  background-image: url("../../Images/store\ 2.jfif");
+  background-position: bottom;
+  background-attachment: fixed;
+}
+
+.about-us > div {
+  padding: 30px 40px;
+}
+
+.about-us {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.about-us.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .about-us-initial {
   height: 100%;
 }
@@ -28,6 +51,33 @@
   font-size: 18px;
 }
 
+.find-out-more-content {
+  height: 100%;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: end;
+}
+
+.find-out-more-text {
+  font-size: 18.5px;
+  line-height: 30px;
+}
+
+
+@media (min-width: 801px) and (max-width: 1025px) {
+  .find-out-more-text {
+    font-size: 16px;
+    line-height: 25px;
+  }
+}
+
+@media (max-width: 801px) {
+  .about-us > div {
+    padding: 30px 15px;
+  }
+}
+
+
 @media (min-width: 401px) and (max-width: 801px) {
   .find-out-more {
     font-size: 14px;
@@ -37,6 +87,10 @@
   }
   .about-us-initial .text p {
     font-size: 14px;
+  }
+  .find-out-more-text {
+    font-size: 14px;
+    line-height: 16px;
   }
 }
 
@@ -50,6 +104,10 @@
   .about-us-initial .text p {
     font-size: 12px;
   }
+  .find-out-more-text {
+    font-size: 12px;
+    line-height: 14px;
+  }
 }
 
 @media (max-width: 300px) {
@@ -61,5 +119,9 @@
   }
   .about-us-initial .text p {
     font-size: 10px;
+  }
+  .find-out-more-text {
+    font-size: 10px;
+    line-height: 12px;
   }
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Side } from "../Side/Side";
+import { Sidename } from "../Sidename/Sidename";
 import "./TopSellers.css";
 
 export const TopSellers = ({ records }) => {
@@ -24,7 +24,7 @@ export const TopSellers = ({ records }) => {
   };
   return (
     <div className="top-sellers">
-      <Side popper="top sellers"/>
+      <Sidename popper="top sellers"/>
       <Carousel
         responsive={responsive}
         showDots={true}

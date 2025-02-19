@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Popper from "@mui/material/Popper";
-import "./Side.css";
+import "./Sidename.css";
 
-export const Side = ({ popper }) => {
+export const Sidename = ({ popper }) => {
   const [isRotated, setIsRotated] = useState(false);
   const [isPopperOpen, setIsPopperOpen] = useState(false);
   const [popperText, setPopperText] = useState("");

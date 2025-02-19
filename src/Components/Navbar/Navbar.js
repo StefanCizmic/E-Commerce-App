@@ -145,11 +145,6 @@ export const Navbar = ({ records }) => {
           </Link>
         </div>
         <div className="user-cart-cont">
-          <Link to="/user">
-            <span>
-              <FontAwesomeIcon icon={faUser} />
-            </span>
-          </Link>
           <Link to="/cart">
             <span>
               <FontAwesomeIcon icon={faCartShopping} />

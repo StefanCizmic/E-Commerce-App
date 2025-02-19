@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Navbar } from "./Components/Navbar/Navbar";
-import { User } from "./Components/Navbar/User/User";
-import { Cart } from "./Components/Navbar/Cart/Cart";
+import { Cart } from "./Components/Cart/Cart"
 import { Home } from "./Components/Home/Home";
 import { Shop } from "./Components/Shop/Shop";
 import { Newsteller } from "./Components/Newsteller/Newsteller";
 import { Club } from "./Components/Club/Club";
-import { AboutUs } from "./Components/Navbar/Navigation/AboutUs/AboutUs";
-import { ShippingPolicy } from "./Components/Navbar/Navigation/ShippingPolicy/ShippingPolicy";
+import { AboutUs } from "./Components/AboutUs/AboutUs";
+import { ShippingPolicy } from "./Components/ShippingPolicy/ShippingPolicy";
 import { SingleRecord } from "./Components/SingleRecord/SingleRecord";
 import { Footer } from "./Components/Footer/Footer";
 import { getRecords } from "./Util/getRecords";
@@ -45,11 +44,10 @@ const App = () => {
           <Route path="/club" element={<Club />}></Route>
           <Route path="/about" element={<AboutUs />}></Route>
           <Route path="/shipping" element={<ShippingPolicy />}></Route>
-          <Route path="/user" element={<User />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/single" element={<SingleRecord />}></Route>          
         </Routes>
-        {currentRoute.pathname !== "/about" && currentRoute.pathname !== "/user" ? <Footer /> : null}
+        {currentRoute.pathname !== "/about" ? <Footer /> : null}
         </div>
     </div>
   );

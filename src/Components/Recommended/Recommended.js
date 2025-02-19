@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Side } from "../Side/Side";
+import { Sidename } from "../Sidename/Sidename";
 import "./Recommended.css";
 
 export const Recommended = ({ records }) => {
@@ -10,7 +10,7 @@ export const Recommended = ({ records }) => {
   };
   return (
     <div className="recommended">
-      <Side popper="we recommend" />
+      <Sidename popper="we recommend" />
       <div className="recomm-records">
         <h2>We recommend</h2>
         {records ? (

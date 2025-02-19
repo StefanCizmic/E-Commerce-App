@@ -1,11 +1,11 @@
 import React from "react";
-import { Side } from "../Side/Side";
-import "./Info.css";
+import { Sidename } from "../Sidename/Sidename";
+import "./StoreInfo.css";
 
-export const Info = () => {
+export const StoreInfo = () => {
   return (
     <div className="info">
-      <Side popper="info" />
+      <Sidename popper="info" />
       <div className="info-cards">
         <div>
           <h4>WHO ARE WE?</h4>
