@@ -50,8 +50,8 @@
 }
 
 .footer > div:nth-child(2) {
-  padding: 50px 105px;
-  display: none;
+  padding: 50px 80px;
+  /* display: none; */
 }
 
 .footer .footer-map {
