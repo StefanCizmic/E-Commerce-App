@@ -28,13 +28,13 @@
 .search-content {
   display: flex;
   align-items: center;
-  width: 65%;
+  width: 55%;
 }
 
 .filtered-records {
   position: absolute;
   z-index: 10;
-  width: 65%;
+  width: 55%;
   margin-top: 5px;
 }
 

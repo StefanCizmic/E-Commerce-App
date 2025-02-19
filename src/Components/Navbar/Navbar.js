@@ -118,7 +118,7 @@ export const Navbar = ({ records }) => {
                   onChange={inputHandler}
                 />
               </span>
-              <button>search</button>
+              {/* <button>search</button> */}
             </div>
             <div className="filtered-records">
               {filteredRecords.map((record) => {
