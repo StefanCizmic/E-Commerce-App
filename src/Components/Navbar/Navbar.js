@@ -1,27 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
-  faUser,
   faCartShopping,
   faBars,
   faRecordVinyl,
-  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
-import Drawer from "@mui/material/Drawer";
+import { Search } from "../Search/Search";
+import { Sidebar } from "../Sidebar/Sidebar";
 import "./Navbar.css";
 
-export const Navbar = ({ records }) => {
+export const Navbar = ({ records, cart }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [filteredRecords, setFilteredRecords] = useState([]);
+  const inputValue = useRef(null);
   const navigate = useNavigate();
-  const toggleDrawer = (open) => () => {
-    setIsDrawerOpen(open);
-  };
+
   const inputHandler = (e) => {
     const typedText = e.target.value.toLowerCase();
-
     if (typedText.length > 0) {
       const filtered = records
         .filter((record) => {
@@ -36,76 +33,26 @@ export const Navbar = ({ records }) => {
       setFilteredRecords([]);
     }
   };
+
   const handleRecord = (record) => {
-    navigate("/single", {state: {record}});
-    setFilteredRecords([]); 
-  }
-  const drawerContent = (
-    <div>
-      <FontAwesomeIcon
-        className="x-mark"
-        onClick={toggleDrawer(false)}
-        icon={faXmark}
-      />
-      <span className="search-form" style={{ marginTop: "5px" }}>
-        <FontAwesomeIcon className="search-icon" icon={faSearch} />
-        <input
-          type="text"
-          placeholder="find records"
-          style={{ backgroundColor: "#f5f5f5" }}
-          onChange={inputHandler}
-        />
-      </span>
-      <div className="filtered-records">
-        {filteredRecords.map((record) => {
-          return (
-            <div key={record.id} className="filtered-record">
-              <div>
-                <img src={record.img}></img>
-              </div>
-              <div>
-                {record.artist} - {record.title}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      <ul className="drawer-content">
-        {["Home", "Shop", "Newsteller", "Club", "About", "Shipping"].map(
-          (item) => (
-            <li key={item} onClick={toggleDrawer(false)}>
-              <Link to={`/${item.toLowerCase()}`}>{item}</Link>
-            </li>
-          )
-        )}
-      </ul>
-    </div>
-  );
+    navigate("/single", { state: { record } });
+    setFilteredRecords([]);
+    inputValue.current.value = "";
+  };
+
+  const toggleDrawer = (open) => () => {
+    setIsDrawerOpen(open);
+  };
+
   return (
     <nav>
-      <Drawer
-        anchor="left"
-        open={isDrawerOpen}
-        onClose={toggleDrawer(false)}
-        sx={{
-          "& .MuiDrawer-paper": {
-            width: {
-              xs: "250px",
-              sm: "250px",
-              md: "350px",
-            },
-            fontSize: {
-              xs: "14px",
-              sm: "16px",
-              md: "16px",
-            },
-            backgroundColor: "#f5f5f5",
-            padding: "20px 20px",
-          },
-        }}
-      >
-        {drawerContent}
-      </Drawer>
+      <Sidebar
+        toggleDrawer={toggleDrawer}
+        isDrawerOpen={isDrawerOpen}
+        inputHandler={inputHandler}
+        filteredRecords={filteredRecords}
+        handleRecord={handleRecord}
+      />
       <div className="upper-nav">
         <div className="search">
           <div>
@@ -115,25 +62,20 @@ export const Navbar = ({ records }) => {
                 <input
                   type="text"
                   placeholder="find records"
+                  ref={inputValue}
                   onChange={inputHandler}
+                  onBlur={() =>
+                    setTimeout(() => {
+                      setFilteredRecords([]);
+                    }, 250)
+                  }
                 />
               </span>
-              {/* <button>search</button> */}
             </div>
-            <div className="filtered-records">
-              {filteredRecords.map((record) => {
-                return (
-                  <div key={record.id} className="filtered-record" onClick={() => handleRecord(record)}>
-                    <div>
-                      <img src={record.img}></img>
-                    </div>
-                    <div>
-                      {record.artist} - {record.title}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <Search
+              filteredRecords={filteredRecords}
+              handleRecord={handleRecord}
+            />
           </div>
         </div>
         <div className="store-name-cont">
@@ -148,6 +90,7 @@ export const Navbar = ({ records }) => {
           <Link to="/cart">
             <span>
               <FontAwesomeIcon icon={faCartShopping} />
+              <small style={{ marginLeft: "2px" }}>{cart.length}</small>
             </span>
           </Link>
           <span className="responsive-menu-bars" onClick={toggleDrawer(true)}>

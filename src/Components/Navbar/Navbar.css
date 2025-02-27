@@ -31,48 +31,7 @@
   width: 55%;
 }
 
-.filtered-records {
-  position: absolute;
-  z-index: 10;
-  width: 55%;
-  margin-top: 5px;
-}
 
-.filtered-record {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  box-sizing:border-box;
-}
-
-.filtered-record:hover {
-  cursor: pointer;
-}
-
-.filtered-record > div:first-child {
-  flex: 0 0 23%;
-  height: 100%;
-}
-
-.filtered-record > div:last-child {
-  display: flex;
-  align-items: center;
-  flex: 0 0 77%;
-  height: 100%;
-  padding-left: 10px;
-  background-color: #F5F5F5;
-  font-size: 14px;
-}
-
-.filtered-record > div:last-child:hover {
-  background-color: #B0B0B0;
-}
-
-.filtered-record > div:first-child > img {
-  height: 100%;
-  width: 100%;
-}
 
 .search-form {
   display: flex;
@@ -93,7 +52,7 @@
   min-width: 0;
 }
 
-.search-content button {
+/* .search-content button {
   margin-left: 4px;
   background-color: var(--buttons-color);
   font-family: "Playfair Display", serif;
@@ -104,12 +63,12 @@
   border-radius: 4px;
   transition: background-color 0.13s ease-in;
   flex-shrink: 0;
-}
+} */
 
-.search-content button:hover {
+/* .search-content button:hover {
   cursor: pointer;
   background-color: #5bc4b6;
-}
+} */
 
 .store-name {
   font-size: 20px;

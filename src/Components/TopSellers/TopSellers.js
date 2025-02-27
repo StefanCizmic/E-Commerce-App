@@ -24,7 +24,7 @@ export const TopSellers = ({ records }) => {
   };
   return (
     <div className="top-sellers">
-      <Sidename popper="top sellers"/>
+      <Sidename popper="top&#x2022;sellers"/>
       <Carousel
         responsive={responsive}
         showDots={true}

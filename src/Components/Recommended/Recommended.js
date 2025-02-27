@@ -10,7 +10,7 @@ export const Recommended = ({ records }) => {
   };
   return (
     <div className="recommended">
-      <Sidename popper="we recommend" />
+      <Sidename popper="we&#x2022;recommend" />
       <div className="recomm-records">
         <h2>We recommend</h2>
         {records ? (

@@ -7,7 +7,7 @@ import {
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
 import "leaflet/dist/leaflet.css";
-import { MapContainer } from "react-leaflet/MapContainer";
+import { MapContainer } from 'react-leaflet/MapContainer'
 import { TileLayer } from "react-leaflet/TileLayer";
 import { Marker } from "react-leaflet/Marker";
 import { Icon } from "leaflet";
@@ -90,13 +90,13 @@ export const Footer = () => {
       <div>
         <div className="footer-map">
           <MapContainer
-            center={[44.866623, 13.849579]}
-            zoom={13}
+            center={[37.865903, -122.258285]}
+            zoom={11}
             style={{ width: "95%", height: "230px", borderRadius: "10px" }}
           >
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <Marker
-              position={[44.866623, 13.849579]}
+              position={[37.865903, -122.258285]}
               icon={customIcon}
             ></Marker>
           </MapContainer>

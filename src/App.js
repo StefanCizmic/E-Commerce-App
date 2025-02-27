@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import { Navbar } from "./Components/Navbar/Navbar";
-import { Cart } from "./Components/Cart/Cart"
+import { Cart } from "./Components/Cart/Cart";
 import { Home } from "./Components/Home/Home";
 import { Shop } from "./Components/Shop/Shop";
 import { Newsteller } from "./Components/Newsteller/Newsteller";
@@ -13,16 +13,13 @@ import { getRecords } from "./Util/getRecords";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
 
+export const CartContx = createContext();
+
 const App = () => {
   const currentRoute = useLocation();
-  const navigateTo = useNavigate();
   const [records, setRecords] = useState([]);
+  const [cart, setCart] = useState([]);
   const [isFocused, setIsFocused] = useState(false);
-  // useEffect(() => {
-  //   if (currentRoute.pathname !== "/home") {
-  //     navigateTo("/home");
-  //   }
-  // }, []);
   useEffect(() => {
     const fetchRecords = async () => {
       const recordsData = await getRecords();
@@ -32,23 +29,27 @@ const App = () => {
     };
     fetchRecords();
   }, []);
-  console.log(records);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentRoute]);
   return (
     <div className="app">
-      <Navbar records={records} setIsFocused={setIsFocused}/>
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Home records={records} />}></Route>
-          <Route path="/shop" element={<Shop records={records} />}></Route>
-          <Route path="/newsteller" element={<Newsteller />}></Route>
-          <Route path="/club" element={<Club />}></Route>
-          <Route path="/about" element={<AboutUs />}></Route>
-          <Route path="/shipping" element={<ShippingPolicy />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/single" element={<SingleRecord />}></Route>          
-        </Routes>
-        {currentRoute.pathname !== "/about" ? <Footer /> : null}
+      <CartContx.Provider value={setCart}>
+        <Navbar records={records} setIsFocused={setIsFocused} cart={cart}/>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home records={records} />}></Route>
+            <Route path="/shop" element={<Shop records={records} />}></Route>
+            <Route path="/newsteller" element={<Newsteller />}></Route>
+            <Route path="/club" element={<Club />}></Route>
+            <Route path="/about" element={<AboutUs />}></Route>
+            <Route path="/shipping" element={<ShippingPolicy />}></Route>
+            <Route path="/cart" element={<Cart cart={cart} setCart={setCart}/>}></Route>
+            <Route path="/single" element={<SingleRecord />}></Route>
+          </Routes>
+          {currentRoute.pathname !== "/about" ? <Footer /> : null}
         </div>
+      </CartContx.Provider>
     </div>
   );
 };

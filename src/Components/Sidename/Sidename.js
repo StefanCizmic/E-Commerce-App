@@ -31,17 +31,19 @@ export const Sidename = ({ popper }) => {
           transition: "transform 0.2s ease-in-out",
         }}
       />
-      <Popper id="popper" open={isPopperOpen} anchorEl={anchorEl}>
-          <p
-            style={{
-              writingMode: "vertical-rl",
-              letterSpacing: "2px",
-              marginTop: "5px",
-              marginLeft: "4px"
-            }}
-          >
-            {popperText}
-          </p>
+      <Popper id="popper" open={isPopperOpen} anchorEl={anchorEl}
+      >
+        <p
+          style={{
+            writingMode: "vertical-rl",
+            letterSpacing: "2px",
+            marginTop: "5px",
+            marginLeft: "-8px",
+            position: 'fixed'
+          }}
+        >
+          {popperText}
+        </p>
       </Popper>
     </div>
   );
