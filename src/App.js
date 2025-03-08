@@ -19,7 +19,7 @@ const App = () => {
   const currentRoute = useLocation();
   const [records, setRecords] = useState([]);
   const [cart, setCart] = useState([]);
-  const [isFocused, setIsFocused] = useState(false);
+  const [cartAnimation, setCartAnimation] = useState(false);
   useEffect(() => {
     const fetchRecords = async () => {
       const recordsData = await getRecords();
@@ -35,7 +35,7 @@ const App = () => {
   return (
     <div className="app">
       <CartContx.Provider value={setCart}>
-        <Navbar records={records} setIsFocused={setIsFocused} cart={cart}/>
+        <Navbar records={records} cart={cart} cartAnimation={cartAnimation} />
         <div className="content">
           <Routes>
             <Route path="/" element={<Home records={records} />}></Route>
@@ -44,8 +44,14 @@ const App = () => {
             <Route path="/club" element={<Club />}></Route>
             <Route path="/about" element={<AboutUs />}></Route>
             <Route path="/shipping" element={<ShippingPolicy />}></Route>
-            <Route path="/cart" element={<Cart cart={cart} setCart={setCart}/>}></Route>
-            <Route path="/single" element={<SingleRecord />}></Route>
+            <Route
+              path="/cart"
+              element={<Cart cart={cart} setCart={setCart} />}
+            ></Route>
+            <Route
+              path="/single"
+              element={<SingleRecord setCartAnimation={setCartAnimation} />}
+            ></Route>
           </Routes>
           {currentRoute.pathname !== "/about" ? <Footer /> : null}
         </div>

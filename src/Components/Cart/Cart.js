@@ -9,7 +9,7 @@ export const Cart = ({ cart, setCart }) => {
   return (
     <div className="cart-content">
         <ul className="cart-box">
-          {cart.length > 0 &&
+          {cart.length > 0 ?
             cart.map((cartItem) => {
               return (
                 <li key={cartItem.id} className="cart-item">
@@ -19,8 +19,8 @@ export const Cart = ({ cart, setCart }) => {
                     <div className="cart-info"></div>
                     <span onClick={() => removeCartItem(cartItem)}>X</span>
                 </li>
-              );
-            })}
+              )
+            }) : <p>No items</p>}
         </ul>
    </div>
   );

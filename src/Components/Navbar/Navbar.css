@@ -31,8 +31,6 @@
   width: 55%;
 }
 
-
-
 .search-form {
   display: flex;
   flex: 1;
@@ -94,6 +92,11 @@
 .user-cart-cont span:hover {
   cursor: pointer;
   color: var(--color-green);
+}
+
+.cart-animation {
+  transform: scale(1.25);
+  transition: transform 0.1s ease-in-out;
 }
 
 .bottom-nav {

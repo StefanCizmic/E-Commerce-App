@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
@@ -11,9 +11,10 @@ import { Search } from "../Search/Search";
 import { Sidebar } from "../Sidebar/Sidebar";
 import "./Navbar.css";
 
-export const Navbar = ({ records, cart }) => {
+export const Navbar = ({ records, cart, cartAnimation }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [filteredRecords, setFilteredRecords] = useState([]);
+  const [addToCart, setAddToCart] = useState(false);
   const inputValue = useRef(null);
   const navigate = useNavigate();
 
@@ -43,6 +44,16 @@ export const Navbar = ({ records, cart }) => {
   const toggleDrawer = (open) => () => {
     setIsDrawerOpen(open);
   };
+
+  // useEffect(() => {
+  //   const cartAnimation = () => {
+  //     setAddToCart(true);
+  //     setTimeout(() => {
+  //       setAddToCart(false)
+  //     }, 1500);
+  //   };
+  //   cartAnimation();
+  // }, [cart]);
 
   return (
     <nav>
@@ -89,7 +100,7 @@ export const Navbar = ({ records, cart }) => {
         <div className="user-cart-cont">
           <Link to="/cart">
             <span>
-              <FontAwesomeIcon icon={faCartShopping} />
+              <FontAwesomeIcon icon={faCartShopping} className={cartAnimation ? 'cart-animation' : ''}/>
               <small style={{ marginLeft: "2px" }}>{cart.length}</small>
             </span>
           </Link>

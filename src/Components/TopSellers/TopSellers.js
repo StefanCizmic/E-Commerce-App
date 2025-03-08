@@ -1,30 +1,26 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Sidename } from "../Sidename/Sidename";
+import { responsive } from "../../Util/responsive";
 import "./TopSellers.css";
 
 export const TopSellers = ({ records }) => {
   const navigate = useNavigate();
-  const handleRecord = (record) => {
-    navigate("/single", {state: {record}});
-  }
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1250 },
-      items: 6,
-      slidesToSlide: 3,
-    },
-    smallerView: {
-      breakpoint: {max: 1249, min: 1024},
-      items: 5,
-      slidesToSlide: 3,
-    }
+
+  const topSellingRecords = useMemo(
+    () => records?.filter((record) => record?.topSeller),
+    [records]
+  );
+
+  const getSingleRecord = (record) => {
+    navigate("/single", { state: { record } });
   };
+
   return (
     <div className="top-sellers">
-      <Sidename popper="top&#x2022;sellers"/>
+      <Sidename popper="top&#x2022;sellers" />
       <Carousel
         responsive={responsive}
         showDots={true}
@@ -34,27 +30,26 @@ export const TopSellers = ({ records }) => {
         containerClass="carousel-cont"
         removeArrowOnDeviceType={["desktop", "smallerView"]}
       >
-        {records ? (
-          records?.map((item) => {
-            if (item?.topSeller) {
-              return (
-                <div className="records-carousel" key={item?.id} onClick={() => handleRecord(item)}>
-                  <div className="record">
-                    <div className="record-img">
-                      <img src={item?.img} />
-                    </div>
-                    <div className="record-data">
-                      <p style={{ fontWeight: "bold" }}>{item?.artist}</p>
-                      <p>{item?.title}</p>
-                    </div>
+        {topSellingRecords.length > 0 &&
+          topSellingRecords.map((topSeller) => {
+            return (
+              <div
+                className="records-carousel"
+                key={topSeller?.id}
+                onClick={() => getSingleRecord(topSeller)}
+              >
+                <div className="record">
+                  <div className="record-img">
+                    <img src={topSeller?.img} />
+                  </div>
+                  <div className="record-data">
+                    <p style={{ fontWeight: "bold" }}>{topSeller?.artist}</p>
+                    <p>{topSeller?.title}</p>
                   </div>
                 </div>
-              );
-            }
-          })
-        ) : (
-          <div>No items available</div>
-        )}
+              </div>
+            );
+          })}
       </Carousel>
     </div>
   );

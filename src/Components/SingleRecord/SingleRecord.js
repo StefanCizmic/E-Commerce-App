@@ -3,12 +3,18 @@ import { CartContx } from "../../App";
 import { useLocation } from "react-router-dom";
 import "./SingleRecord.css";
 
-export const SingleRecord = () => {
+export const SingleRecord = ({ setCartAnimation }) => {
   const location = useLocation();
   const { record } = location.state;
   const cart = useContext(CartContx);
   const addCartItem = (record) => {
     cart((prev) => [...prev, record]);
+  };
+  const cartAnim = () => {
+    setCartAnimation(true);
+    setTimeout(() => {
+      setCartAnimation(false);
+    }, 1000);
   };
   return (
     <div className="single-record">
@@ -38,7 +44,7 @@ export const SingleRecord = () => {
                 <span>Label:</span> {record?.release?.label}
               </li>
               <li>
-                <span>Price:</span> {record?.price}&#8364;
+                <span>Price:</span> {record?.price}&#36;
               </li>
               <li
                 style={{
@@ -54,7 +60,10 @@ export const SingleRecord = () => {
               className={
                 record?.availability === "In stock" ? "button-active" : null
               }
-              onClick={() => addCartItem(record)}
+              onClick={() => {
+                addCartItem(record);
+                cartAnim();
+              }}
             >
               Add to cart
             </button>
