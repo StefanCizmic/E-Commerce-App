@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
@@ -14,7 +14,6 @@ import "./Navbar.css";
 export const Navbar = ({ records, cart, cartAnimation }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [filteredRecords, setFilteredRecords] = useState([]);
-  const [addToCart, setAddToCart] = useState(false);
   const inputValue = useRef(null);
   const navigate = useNavigate();
 
@@ -44,16 +43,6 @@ export const Navbar = ({ records, cart, cartAnimation }) => {
   const toggleDrawer = (open) => () => {
     setIsDrawerOpen(open);
   };
-
-  // useEffect(() => {
-  //   const cartAnimation = () => {
-  //     setAddToCart(true);
-  //     setTimeout(() => {
-  //       setAddToCart(false)
-  //     }, 1500);
-  //   };
-  //   cartAnimation();
-  // }, [cart]);
 
   return (
     <nav>
