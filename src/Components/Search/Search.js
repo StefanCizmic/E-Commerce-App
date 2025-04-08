@@ -1,4 +1,5 @@
 import React from "react";
+import { Autocomplete } from "@mui/material";
 import "./Search.css";
 
 export const Search = ({ filteredRecords, handleRecord }) => {

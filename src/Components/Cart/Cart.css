@@ -17,7 +17,7 @@
 }
 
 .cart-box thead th {
-  text-align: start;
+  text-align: left;
   padding-bottom: 10px;
 }
 
@@ -33,6 +33,7 @@
 
 .product-img {
   height: 100%;
+  width: 15%;
   width: 150px;
   padding: 15px 0px;
   & img {
@@ -64,3 +65,18 @@
   font-size: 17px;
 }
 
+/* .product-data-end {
+  text-align: center;
+  position: relative;
+  left: -5px;
+  font-size: 17.5px;
+} */
+
+.continue-pay-btn {
+  cursor: pointer;
+  transition: color 0.13s ease-in;
+}
+
+.continue-pay-btn:hover {
+  color: var(--color-green);
+}

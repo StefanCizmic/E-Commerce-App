@@ -9,12 +9,14 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { Search } from "../Search/Search";
 import { Sidebar } from "../Sidebar/Sidebar";
+// import { Autocomplete, TextField } from "@mui/material";
 import "./Navbar.css";
 
 export const Navbar = ({ records, cart, cartAnimation }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [filteredRecords, setFilteredRecords] = useState([]);
   const inputValue = useRef(null);
+  const filteredRecordsRef = useRef(null); 
   const navigate = useNavigate();
 
   const inputHandler = (e) => {
@@ -56,7 +58,7 @@ export const Navbar = ({ records, cart, cartAnimation }) => {
       <div className="upper-nav">
         <div className="search">
           <div>
-            <div className="search-content">
+            <div className="search-content">   
               <span className="search-form">
                 <FontAwesomeIcon className="search-icon" icon={faSearch} />
                 <input
@@ -89,7 +91,10 @@ export const Navbar = ({ records, cart, cartAnimation }) => {
         <div className="user-cart-cont">
           <Link to="/cart">
             <span>
-              <FontAwesomeIcon icon={faCartShopping} className={cartAnimation ? 'cart-animation' : ''}/>
+              <FontAwesomeIcon
+                icon={faCartShopping}
+                className={cartAnimation ? "cart-animation" : ""}
+              />
               <small style={{ marginLeft: "2px" }}>{cart.length}</small>
             </span>
           </Link>
@@ -104,7 +109,7 @@ export const Navbar = ({ records, cart, cartAnimation }) => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/shop">Shop</Link>
+            <Link to="/store">Store</Link>
           </li>
           <li>
             <Link to="/newsteller">Newsteller</Link>

@@ -31,7 +31,7 @@ export const Sidebar = ({
       </span>
       <Search filteredRecords={filteredRecords} handleRecord={handleRecord}/>
       <ul className="drawer-content">
-        {["Home", "Shop", "Newsteller", "Club", "About", "Shipping"].map(
+        {["Home", "Store", "Newsteller", "Club", "About", "Shipping"].map(
           (item) => (
             <li key={item} onClick={toggleDrawer(false)}>
               <Link to={`/${item.toLowerCase()}`}>{item}</Link>

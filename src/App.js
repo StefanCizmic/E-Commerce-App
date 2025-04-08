@@ -2,7 +2,7 @@ import React, { useEffect, useState, createContext } from "react";
 import { Navbar } from "./Components/Navbar/Navbar";
 import { Cart } from "./Components/Cart/Cart";
 import { Home } from "./Components/Home/Home";
-import { Shop } from "./Components/Shop/Shop";
+import { Store } from "./Components/Store/Store";
 import { Newsteller } from "./Components/Newsteller/Newsteller";
 import { Club } from "./Components/Club/Club";
 import { AboutUs } from "./Components/AboutUs/AboutUs";
@@ -39,7 +39,7 @@ const App = () => {
         <div className="content">
           <Routes>
             <Route path="/" element={<Home records={records} />}></Route>
-            <Route path="/shop" element={<Shop records={records} />}></Route>
+            <Route path="/store" element={<Store records={records} />}></Route>
             <Route path="/newsteller" element={<Newsteller />}></Route>
             <Route path="/club" element={<Club />}></Route>
             <Route path="/about" element={<AboutUs />}></Route>
